@@ -1,0 +1,239 @@
+<!DOCTYPE>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <title>公积金</title>
+    <style>
+      body {        
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        line-height: 18px;
+        font-family: 宋体, arial;
+        background-color: rgb(247, 243, 234);
+      }
+      .container {
+        width: 728px;
+        margin: 100px auto;
+      }
+      .title {
+        background: url(./images/fontheard-bg.jpg) left top repeat-x;
+        height: 38px;
+        line-height: 38px;
+        border: 1px solid #d0d0d0;
+        font-size: 16px;
+        font-family: '微软雅黑';
+        text-align: center;
+      }
+      .subtitle {
+        margin: 0;
+        padding: 0 10px;
+        line-height: 32px;
+        color: #0084bb;
+        background: #f0f0f0;
+        text-align: left;
+        border-left: 1px solid #d0d0d0;
+        border-right: 1px solid #d0d0d0;
+      }
+      table, td, tr, th{
+        font-size: 12px;
+      }
+      #tab-style {
+        width: 100%;
+        border-bottom: 1px solid #d8d8d8;
+      }
+      #tab-style tr {
+        height: 32px;
+      }
+      #tab-style td:first-child, #tab-style th:first-child {
+        border-left: 1px solid #d8d8d8;
+      }
+      #tab-style tr:nth-child(2n) {
+        background-color: #FFFFFF;
+      }
+      #tab-style tr:nth-child(2n + 1) {
+        background-color: rgb(241, 241, 241);
+      }
+      #tab-style td {
+        border-right: 1px solid #d8d8d8;
+      }
+      #tab-style th { 
+        background: #edf6fc;
+        color: #0084bb;
+        border-right: 1px solid #d8d8d8;
+      }
+    </style>
+	</head>
+<script>
+  function init() {
+    var tbl = document.getElementById('tab-style');
+  	var trs = tbl.querySelectorAll('tr');
+  	var index = 0, qq = 0;
+  	for (var i = 0, length = trs.length; i < length; i++) {
+  	  if (i === 0 || i === 1) continue;
+  	  var tr = trs[i];
+  	  var tmp = tr.querySelectorAll('td');
+  	  var tmp1 = parseFloat(tmp[3].innerText.replace(',', ''));
+  	  if (tmp1 !== 0) { tmp1 += 148.32; index = i - 1 - qq; } else { qq += 1; }
+  	  
+  	  var tmp2 = parseFloat(tmp[5].innerText.replace(',', '')) + 148.32 * index;
+  	  if (tmp1 !== 0) {
+  	    var haha = tmp1.toString().split('');
+  	    haha.splice(1, 0, ',');
+  	    tmp[3].innerHTML = '&nbsp;' + haha.join('');
+
+  	    tmp[5].innerHTML = '&nbsp;' + parseFloat(tmp2.toFixed(2)).toLocaleString();
+  	    console.log(tmp1, tmp2);
+  	  } else {
+  	    if (i == 1) continue;
+  	    tmp[5].innerHTML = '&nbsp;' + parseFloat((parseFloat(trs[i - 1].querySelectorAll('td')[5].innerText.replace(',', '')) - 4500).toFixed(2)).toLocaleString();
+  	  }
+  	}
+  }
+</script>
+
+<body onload="init()">
+  <div class="container">
+    <div class="title">
+      住房公积金个人明细账信息
+    </div>
+    <p class="subtitle">姓名:刘博文 
+      <span style="float:right;">
+        查询范围：
+        2017-07-01至今
+      </span>
+    </p>
+    <table cellpadding="0" cellspacing="0" id="tab-style">
+      <tr style="background:#edf6fc; font-weight:bold;">
+        <th height="20" color="#535353" class="style2">
+          <div align="center">到账日期</div>
+        </th>
+        <th height="20" color="#535353" class="style2">
+          <div align="center">汇补缴年月</div>
+        </th>
+        <th color="#535353" class="style2">
+          <div align="center">业务类型</div>
+        </th>
+        <th height="20" color="#535353" class="style2">
+          <div align="center">增加额(元)</div>
+        </th>
+        <th height="20" color="#535353" class="style2">
+          <div align="center">减少额(元)</div>
+        </th>
+        <th height="20" color="#535353" class="style2">
+          <div align="center">余额(元)</div>
+        </th>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20170713</td>
+        <td class="style2">&nbsp;</td>
+        <td class="style2">&nbsp; &#25552;&#21462;
+        </td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;4,500</td>
+        <td class="style2">&nbsp;71,036.14</td>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20170724</td>
+        <td class="style2">&nbsp;201707</td>
+        <td class="style2">&nbsp; &#27719;&#32564;
+        </td>
+        <td class="style2">&nbsp;5,400</td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;76,436.14</td>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20170823</td>
+        <td class="style2">&nbsp;201708</td>
+        <td class="style2">&nbsp; &#27719;&#32564;
+        </td>
+        <td class="style2">&nbsp;5,400</td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;81,836.14</td>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20170925</td>
+        <td class="style2">&nbsp;201709</td>
+        <td class="style2">&nbsp; &#27719;&#32564;
+        </td>
+        <td class="style2">&nbsp;5,400</td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;87,236.14</td>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20171013</td>
+        <td class="style2">&nbsp;</td>
+        <td class="style2">&nbsp; &#25552;&#21462;
+        </td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;4,500</td>
+        <td class="style2">&nbsp;82,736.14</td>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20171025</td>
+        <td class="style2">&nbsp;201710</td>
+        <td class="style2">&nbsp; &#27719;&#32564;
+        </td>
+        <td class="style2">&nbsp;5,400</td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;88,136.14</td>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20171208</td>
+        <td class="style2">&nbsp;201711</td>
+        <td class="style2">&nbsp; &#27719;&#32564;
+        </td>
+        <td class="style2">&nbsp;5,400</td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;93,536.14</td>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20171222</td>
+        <td class="style2">&nbsp;201712</td>
+        <td class="style2">&nbsp; &#27719;&#32564;
+        </td>
+        <td class="style2">&nbsp;5,400</td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;98,936.14</td>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20180115</td>
+        <td class="style2">&nbsp;</td>
+        <td class="style2">&nbsp; &#25552;&#21462;
+        </td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;4,500</td>
+        <td class="style2">&nbsp;94,436.14</td>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20180124</td>
+        <td class="style2">&nbsp;201801</td>
+        <td class="style2">&nbsp; &#27719;&#32564;
+        </td>
+        <td class="style2">&nbsp;5,400</td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;99,836.14</td>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20180302</td>
+        <td class="style2">&nbsp;201802</td>
+        <td class="style2">&nbsp; &#27719;&#32564;
+        </td>
+        <td class="style2">&nbsp;5,400</td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;105,236.14</td>
+      </tr>
+      <tr>
+        <td class="style2">&nbsp;20180321</td>
+        <td class="style2">&nbsp;201803</td>
+        <td class="style2">&nbsp; &#27719;&#32564;
+        </td>
+        <td class="style2">&nbsp;5,400</td>
+        <td class="style2">&nbsp;0</td>
+        <td class="style2">&nbsp;110,636.14</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
